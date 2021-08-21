@@ -1,19 +1,23 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import linkIcon from "../assets/images/linkIcon.png"
 import penIcon from "../assets/images/penIcon.png"
 
 //STYLES
-const FormBox = styled.div`
+const FormBox = styled.div` 
     display: flex;
     justify-content: center;
+    position: absolute;
+    top: ${props => props.form};
+    width: 100%;
+    z-index: 0;
+    transition: all 0.5s ease-in-out;
+    box-shadow: rgb(0 0 0 / 35%) 0px 1px 15px 0px;
     
     form{
-        margin-top: 20px;
         border-radius: 5px;
-        width: 90%;
+        width: 100%;
         padding: 20px;
-        box-shadow: rgb(0 0 0 / 15%) 0px 1px 15px 0px;
         background-color: white;
 
         input{
@@ -71,13 +75,13 @@ const FormBox = styled.div`
                 border-radius: 4px;
                 font-weight: 400;
                 font-size: 1em;
-                background-color: orange;
+                background-color: #458aca;
                 color: white;
 
                 &:hover{
                     background-color: white;
-                    border: 1px solid orange;
-                    color: orange;
+                    border: 1px solid #458aca;
+                    color: #458aca;
                     transition: all 0.5s ease-in-out;
                 }
             }
@@ -86,10 +90,19 @@ const FormBox = styled.div`
 
 `
 
-const Form = () =>{
+const Form = ({form}) =>{
+    //FUNCTIONS
+    const handleForm = () =>{
+        
+    }
+
+    useEffect(() => {
+        handleForm()
+    }, [])
+
     return(
         <>
-            <FormBox>
+            <FormBox form={form}>
                 <form action="">
                     <div className="url-box">
                         <img src={linkIcon} alt="" />
